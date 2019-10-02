@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>How many invoices?</mat-label>
+    <mat-select [formControl]="panelColor"
+                panelClass="example-panel-{{panelColor.value}}">
+        <mat-option value="Single Upload">Single Upload</mat-option>
+        <mat-option value="Batch Upload">Batch Upload</mat-option>
+    </mat-select>
+</mat-form-field>
