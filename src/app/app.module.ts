@@ -21,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PdfUploaderComponent } from './extraction-module/pdf-uploader/pdf-uploader.component';
+import { DragDropDirective } from './drag-drop.directive';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TabGroupExtractComponent,
     BatchOrSingleComponent,
     InvoiceTypeComponent,
-    StepperComponent
+    StepperComponent,
+    PdfUploaderComponent,
+    DragDropDirective
   ],
   imports: [
     BrowserModule,
