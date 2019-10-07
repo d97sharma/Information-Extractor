@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-stepper',
@@ -11,7 +12,9 @@ export class StepperComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,
+    private notifyService : NotificationService
+    ) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -21,5 +24,9 @@ export class StepperComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
   }
+    showToaster()
+    {
+      this.notifyService.showSuccess("Data shown successfully !!", "Notification")
+    }
 
 }

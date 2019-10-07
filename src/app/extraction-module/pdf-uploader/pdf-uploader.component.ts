@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEventType } from '@angular/common/http';
 import { UploadStatus } from './upload-status'
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-pdf-uploader',
@@ -14,11 +15,14 @@ export class PdfUploaderComponent implements OnInit {
   files: any[] = [];
   fileNames: string[]= [];
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private notifyService : NotificationService
+    ) { }
 
   ngOnInit() {
   }
   sendFiles (){ 
+    this.notifyService.showSuccess("Data shown successfully !!", "Notification");
     if (this.files.length === 0) {
       return;
     }

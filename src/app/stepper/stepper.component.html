@@ -26,7 +26,7 @@
     </mat-step>
     <mat-step label="3. Upload Invoice/s" state="upload">
       <app-pdf-uploader></app-pdf-uploader>   
-      <button class="btn-success">Continue</button>
+      <button class="btn-success" (click)="showToaster()">Continue</button>
     </mat-step>
   
     <!-- Icon overrides. -->

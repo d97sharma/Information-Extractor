@@ -1,7 +1,7 @@
 import { Component,ViewEncapsulation } from '@angular/core';
 import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,8 @@ export class AppComponent {
   title = 'AppClient';
   constructor(
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private toastr: ToastrService
   ) {
     this.matIconRegistry.addSvgIcon(
       "logo",
