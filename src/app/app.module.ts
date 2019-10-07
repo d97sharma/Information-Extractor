@@ -23,6 +23,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PdfUploaderComponent } from './extraction-module/pdf-uploader/pdf-uploader.component';
 import { DragDropDirective } from './drag-drop.directive';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { DragDropDirective } from './drag-drop.directive';
     FormsModule,
     MatStepperModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {
