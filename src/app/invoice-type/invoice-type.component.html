@@ -1,8 +1,23 @@
 <mat-form-field>
         <mat-label>Type of invoice/s?</mat-label>
-        <mat-select [formControl]="panelColor"
-                    panelClass="example-panel-{{panelColor.value}}">
-            <mat-option value="AmeriHome">AmeriHome</mat-option>
-            <mat-option value="BoA">BoA</mat-option>
-        </mat-select>
+
+        <!-- <mat-select class="form-control" [(ngModel)]="MyData" (change)="selected()">       
+                <mat-option>AmeriHome</mat-option>
+                <mat-option>BoA</mat-option>             
+        </mat-select> -->
+
+      
+        <mat-select >
+        <!-- [formControl]="panelColor" 
+                panelClass="example-panel-{{panelColor.value}}"> -->
+                <mat-option *ngFor="let item of data" (click)="selected(item.name)" [value]="item.id">{{item.name}}</mat-option> 
+                <!-- <mat-option value="AmeriHome">AmeriHome</mat-option>
+                <mat-option value="BoA">BoA</mat-option>   -->
+        </mat-select> 
+
+        
+     
+        
+        
 </mat-form-field>
+<mat-label [(ngModel)]="selectedOption">Selected Value is: {{ selectedOption }}</mat-label>

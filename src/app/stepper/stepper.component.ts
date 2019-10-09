@@ -11,12 +11,14 @@ export class StepperComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  showMePartially: boolean;
 
   constructor(private _formBuilder: FormBuilder,
     private notifyService : NotificationService
     ) { }
 
   ngOnInit() {
+    this.showMePartially = true;
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -26,7 +28,8 @@ export class StepperComponent implements OnInit {
   }
     showToaster()
     {
-      this.notifyService.showSuccess("Data shown successfully !!", "Notification")
+      this.notifyService.showSuccess("Data shown successfully !!", "Notification");
+      this.showMePartially = false;
     }
 
 }

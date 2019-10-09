@@ -5,15 +5,15 @@ import { TrainingModuleComponent } from './training-module/training-module.compo
 import { ExtractionModuleComponent } from './extraction-module/extraction-module.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { StepperComponent } from './stepper/stepper.component';
+import { UploadListComponent } from './upload-list/upload-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path:'upload-list',component: UploadListComponent},
   { path: 'home', component: HomeComponent },
   { path: 'train', component: TrainingModuleComponent },
   { path: 'extract', component: ExtractionModuleComponent },
-  { path: '**', component: PageNotFoundComponent },
-  {path:'stepper',component:StepperComponent}
+  { path: '**', component: PageNotFoundComponent }
   ];
 
 @NgModule({

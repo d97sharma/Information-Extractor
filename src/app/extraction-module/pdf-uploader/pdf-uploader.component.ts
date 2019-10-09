@@ -6,7 +6,8 @@ import { NotificationService } from 'src/app/notification.service';
 @Component({
   selector: 'app-pdf-uploader',
   templateUrl: './pdf-uploader.component.html',
-  styleUrls: ['./pdf-uploader.component.scss']
+  styleUrls: ['./pdf-uploader.component.scss'],
+  
 })
 export class PdfUploaderComponent implements OnInit {
 
