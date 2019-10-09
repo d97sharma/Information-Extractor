@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormControl} from '@angular/forms';
+import { NotificationService } from 'src/app/notification.service';
+
 
 @Component({
   selector: 'app-invoice-type',
@@ -11,7 +13,9 @@ import {FormControl} from '@angular/forms';
 })
 export class InvoiceTypeComponent implements OnInit {
 
-  constructor(private route: Router){ }
+  constructor(private route: Router,
+               private notifyService:NotificationService
+    ){ }
 
   panelColor = new FormControl('red');
 
@@ -40,7 +44,7 @@ export class InvoiceTypeComponent implements OnInit {
 
   selected(selectedOption) {
     this.selectedOption = selectedOption;
-    alert(selectedOption)
+    this.notifyService.showSuccess(this.selectedOption+" is the selected option", "Notification");
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEventType } from '@angular/common/http';
 import { UploadStatus } from './upload-status'
 import { NotificationService } from 'src/app/notification.service';
+import { FileNameService } from 'src/app/file-name.service';
 
 @Component({
   selector: 'app-pdf-uploader',
@@ -17,13 +18,14 @@ export class PdfUploaderComponent implements OnInit {
   fileNames: string[]= [];
   
   constructor(private http: HttpClient,
-    private notifyService : NotificationService
+    private notifyService : NotificationService,
+    private fileNameService: FileNameService
     ) { }
 
   ngOnInit() {
   }
   sendFiles (){ 
-    this.notifyService.showSuccess("Data shown successfully !!", "Notification");
+    this.notifyService.showSuccess("Files uploaded successfully", "Notification");
     if (this.files.length === 0) {
       return;
     }
@@ -46,7 +48,9 @@ export class PdfUploaderComponent implements OnInit {
       const element = event[index];
       this.fileNames.push(element.name);
       this.files.push(element);
+      //this.fileNameService.fileName.push(element.name);
     }  
+    this.fileNameService.fileName = this.fileNames;
   }
   deleteAttachment(index) {
     this.files.splice(index, 1);

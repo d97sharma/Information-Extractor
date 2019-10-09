@@ -4,5 +4,30 @@
           <img src="../../../assets/Recycle_Bin_Full.png">
         </button>
 </div> -->
-<h1>Works</h1>
-{{filelist}}
+<h2>List of the files uploaded</h2>
+<br>
+<!-- <div  class="files-list" *ngFor="let fileName of fileList;let i=index">
+  <p>{{ fileName }}</p>
+  <button class="delete-file" (click)="deleteAttachment(i)">
+    <img src="../../../assets/Recycle_Bin_Full.png">
+  </button>
+</div> -->
+
+<table class="files-table" *ngIf="fileList">
+  <tr>
+      <th>Sr.No.</th>
+      <th>Name of the files</th> 
+      <th>Options Available</th>
+      
+      
+  </tr>
+  <tr *ngFor="let fileName of fileList;let i=index">
+      <td>{{i+1}}</td>
+      <td >{{ fileName }}</td>
+      <td ><button class="delete-file" (click)="deleteAttachment(i)">
+          <img src="../../../assets/Recycle_Bin_Full.png"> </button> &nbsp;&nbsp;
+            <button>Extract Info</button>
+      </td>
+  </tr>
+</table>
+  

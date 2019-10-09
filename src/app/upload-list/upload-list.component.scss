@@ -1,0 +1,23 @@
+// .files-list .delete-file {
+//     background: transparent;
+//     border: none;
+//     cursor: pointer;
+//     display: inline-block;
+//   }
+//   .files-list .delete-file img{
+//     width:30px;
+//   }
+.files-table , td , tr,th{
+    border: 1px solid black;
+}
+  
+  .files-table .delete-file {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .files-table .delete-file img{
+    width:30px;
+  }
+  
