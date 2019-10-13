@@ -25,6 +25,8 @@ import { PdfUploaderComponent } from './extraction-module/pdf-uploader/pdf-uploa
 import { DragDropDirective } from './drag-drop.directive';
 import { ToastrModule } from 'ngx-toastr';
 import { UploadListComponent } from './upload-list/upload-list.component';
+import {MatDialogModule} from "@angular/material";
+import { InformationDialogComponent } from './information-dialog/information-dialog.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { UploadListComponent } from './upload-list/upload-list.component';
     StepperComponent,
     PdfUploaderComponent,
     DragDropDirective,
-    UploadListComponent
+    UploadListComponent,
+    InformationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { UploadListComponent } from './upload-list/upload-list.component';
     MatStepperModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatDialogModule
   ],
   providers: [
     {
@@ -64,7 +68,8 @@ import { UploadListComponent } from './upload-list/upload-list.component';
 
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [InformationDialogComponent]
 })
 export class AppModule { }
 
