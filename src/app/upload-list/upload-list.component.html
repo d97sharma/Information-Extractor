@@ -12,7 +12,7 @@
     <img src="../../../assets/Recycle_Bin_Full.png">
   </button>
 </div> -->
-
+<div class="table-container">
 <table class="files-table" *ngIf="fileList">
   <tr>
       <th>Sr.No.</th>
@@ -26,9 +26,14 @@
       <td >{{ fileName }}</td>
       <td ><button class="delete-file" (click)="deleteAttachment(i)">
           <img src="../../../assets/Recycle_Bin_Full.png"> </button> &nbsp;&nbsp;
-            <button>Extract Info</button>
+            <button (click)="convertToJpeg()" >Convert to JPG</button>  &nbsp;&nbsp;
+            <button (click)="openDialog()" >Extract Info</button>
+            
       </td>
   </tr>
 </table>
+
+</div>
   
 <button (click)="openDialog()">Click Me</button>
+<p>{{testMessage}}</p>

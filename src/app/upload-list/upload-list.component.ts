@@ -5,6 +5,9 @@ import {PdfUploaderComponent} from '../extraction-module/pdf-uploader/pdf-upload
 import { FileNameService } from '../file-name.service';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { InformationDialogComponent } from '../information-dialog/information-dialog.component';
+import { HttpClient } from '@angular/common/http';
+import { UploadStatus } from '../extraction-module/pdf-uploader/upload-status';
+
 
 @Component({
   selector: 'app-upload-list',
@@ -15,11 +18,15 @@ import { InformationDialogComponent } from '../information-dialog/information-di
 
 export class UploadListComponent implements OnInit {
 
+showFlag : boolean = true;
 fileList: string[]= null;
+statusMessage : any = null;
+testMessage:string = "hi" ;
 //files: any[] = [];
   constructor(private fileComponent: PdfUploaderComponent,
               private fileNameService : FileNameService,
-              private dialog: MatDialog
+              private dialog: MatDialog,
+              private http:HttpClient
               ){ }
   
   deleteAttachment(index) {
@@ -39,12 +46,31 @@ fileList: string[]= null;
             dialogConfig.disableClose = true;
             dialogConfig.autoFocus = true;
           
-           this.dialog.open(InformationDialogComponent, dialogConfig);
+           //this.dialog.open(InformationDialogComponent, dialogConfig);
 
-            // let dialogRef = this.dialog.open(InformationDialogComponent, {
-            //   height: '400px',
-            //   width: '600px',
-            // });
+            let dialogRef = this.dialog.open(InformationDialogComponent, {
+              height: '400px',
+              width: '600px',
+            });
       }
 
+      convertToJpeg(){
+                      this.http.get<any>("http://172.23.179.165:5000/api/ConvertPDFs").subscribe(
+                      (data: any) => {
+                        this.statusMessage = data;
+                        this.testMessage = this.statusMessage["Status"];
+
+                    }
+                    );
+                    // this.status =   this.http.get("http://172.23.179.165:5000/api/ConvertPDFs");
+                    // }
+
+                    
+                    //return this.http.get("http://172.23.179.165:5000/api/ConvertPDFs");
+
+
+
+                    
+
+                }
 }
