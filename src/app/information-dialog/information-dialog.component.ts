@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExtractedInformationService } from '../extracted-information.service';
 
 @Component({
   selector: 'app-information-dialog',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformationDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+              private extractedInformation : ExtractedInformationService
+               ) { }
+
+infoExtracted :any;
 
   ngOnInit() {
+          this.infoExtracted = this.extractedInformation.extractedData;
   }
 
 }

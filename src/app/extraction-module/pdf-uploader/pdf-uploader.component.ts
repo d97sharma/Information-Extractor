@@ -46,7 +46,7 @@ export class PdfUploaderComponent implements OnInit {
   uploadFile(event) {
     for (let index = 0; index < event.length; index++) {
       const element = event[index];
-      this.fileNames.push(element.name);
+      this.fileNames.push(element.name.split('.')[0]);
       this.files.push(element);
       //this.fileNameService.fileName.push(element.name);
     }  
