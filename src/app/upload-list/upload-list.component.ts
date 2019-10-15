@@ -7,6 +7,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 import { InformationDialogComponent } from '../information-dialog/information-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { UploadStatus } from '../extraction-module/pdf-uploader/upload-status';
+import { NotificationService } from '../notification.service';
 
 
 @Component({
@@ -26,7 +27,8 @@ testMessage:string = "hi" ;
   constructor(private fileComponent: PdfUploaderComponent,
               private fileNameService : FileNameService,
               private dialog: MatDialog,
-              private http:HttpClient
+              private http:HttpClient,
+              private notifyService : NotificationService
               ){ }
   
   deleteAttachment(index) {
@@ -59,18 +61,9 @@ testMessage:string = "hi" ;
                       (data: any) => {
                         this.statusMessage = data;
                         this.testMessage = this.statusMessage["Status"];
-
+                        this.notifyService.showSuccess(this.testMessage,"");                        
                     }
                     );
-                    // this.status =   this.http.get("http://172.23.179.165:5000/api/ConvertPDFs");
-                    // }
-
-                    
-                    //return this.http.get("http://172.23.179.165:5000/api/ConvertPDFs");
-
-
-
-                    
-
+                                 
                 }
 }
